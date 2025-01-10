@@ -10,6 +10,8 @@ export enum ProductCategory {
     Shirts = "shirts",
     Pants = "pants",
     Shoes = "shoes",
+    Socks = "socks",
+    Booties = "booties"
 }
 
 export interface Product {
