@@ -22,5 +22,7 @@ export interface Product {
     description: string;
     cover: string;
     coverCredits: string;
+    color: string;
     category: ProductCategory;
+    
 }

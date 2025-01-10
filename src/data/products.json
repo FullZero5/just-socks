@@ -7,7 +7,8 @@
     "description": "Cool Socks from Dushnila. Don't worry about the stain, it's easy to clean.",
     "cover": "/products/dushnila.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
-    "category": "Socks"
+    "category": "Socks",
+    "color": "white"
   },
   {
     "id": 15,
@@ -17,7 +18,8 @@
     "description": "Cool Socks from 'Queen'. Don't worry about the stain, it's easy to clean.",
     "cover": "/products/queen.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
-    "category": "Socks"
+    "category": "Socks",
+    "color": "white"
   },
   {
     "id": 16,
@@ -27,7 +29,8 @@
     "description": "Cool Socks from 'Pause'. Don't worry about the stain, it's easy to clean.",
     "cover": "/products/pause.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
-    "category": "Socks"
+    "category": "Socks",
+    "color": "white"
   },
   {
     "id": 17,
@@ -37,7 +40,8 @@
     "description": "Cool Socks from Serial idiot'. Don't worry about the stain, it's easy to clean.",
     "cover": "/products/serial.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
-    "category": "Socks"
+    "category": "Socks",
+    "color": "white"
   },
   {
     "id": 18,
@@ -47,7 +51,8 @@
     "description": "Cool Socks from 'The cat is peeping'. Don't worry about the stain, it's easy to clean.",
     "cover": "/products/blcat.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
-    "category": "Socks"
+    "category": "Socks",
+    "color": "black"
   },
   {
     "id": 19,
@@ -57,7 +62,8 @@
     "description": "Cool Socks from 'Eyes'. Don't worry about the stain, it's easy to clean.",
     "cover": "/products/eyes.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
-    "category": "Socks"
+    "category": "Socks",
+    "color": "orange"
   },
   {
     "id": 20,
@@ -67,7 +73,8 @@
     "description": "Cool Socks from 'Ducks'. Don't worry about the stain, it's easy to clean.",
     "cover": "/products/ducks.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
-    "category": "Socks"
+    "category": "Socks",
+    "color": "black"
   },
   {
     "id": 21,
@@ -77,7 +84,8 @@
     "description": "Cool Socks from 'Frogs'. Don't worry about the stain, it's easy to clean.",
     "cover": "/products/frogs.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
-    "category": "Socks"
+    "category": "Socks",
+    "color": "black"
   },
   {
     "id": 22,
@@ -87,7 +95,8 @@
     "description": "Cool Socks from 'Car'. Don't worry about the stain, it's easy to clean.",
     "cover": "/products/car.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
-    "category": "Socks"
+    "category": "Socks",
+    "color": "gray"
   },
   {
     "id": 23,
@@ -97,7 +106,8 @@
     "description": "Cool Socks from 'Cars'. Don't worry about the stain, it's easy to clean.",
     "cover": "/products/сars.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
-    "category": "Socks"
+    "category": "Socks",
+    "color": "gray"
   },
   {
     "id": 24,
@@ -107,7 +117,8 @@
     "description": "Cool Socks from 'Dogs'. Don't worry about the stain, it's easy to clean.",
     "cover": "/products/dogs.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
-    "category": "Socks"
+    "category": "Socks",
+    "color": "gray"
   },
   {
     "id": 25,
@@ -117,7 +128,8 @@
     "description": "Cool Booties from 'Pink'. Don't worry about the stain, it's easy to clean.",
     "cover": "/products/booties_pink.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
-    "category": "Booties"
+    "category": "Booties",
+    "color": "pink"
   },
   {
     "id": 26,
@@ -127,6 +139,7 @@
     "description": "Cool Booties from 'Blue'. Don't worry about the stain, it's easy to clean.",
     "cover": "/products/booties_blue.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
-    "category": "Booties"
+    "category": "Booties",
+    "color": "blue"
   }
 ]
