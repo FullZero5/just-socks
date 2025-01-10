@@ -9,7 +9,7 @@ interface Props {
 const {
   title,
   image = "/products/ryan-hoffman-A7f7XRKgUWc-unsplash.webp",
-  description = "A simple Shop built in Astro using View Transitions and TailwindCSS",
+  description = "Just Socks",
 } = Astro.props;
 
 const imageUrl = import.meta.env.PUBLIC_URL
@@ -36,7 +36,7 @@ const imageUrl = import.meta.env.PUBLIC_URL
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} - Astro Transitions Shop</title>
+    <title>{title} - Just Socks</title>
     <ViewTransitions />
   </head>
   <body class="bg-gradient-to-tl via-transparent from-gray-500/5">
