@@ -23,4 +23,5 @@ export interface Product {
     cover: string;
     coverCredits: string;
     category: ProductCategory;
+    color: string;
 }
