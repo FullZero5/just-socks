@@ -1,56 +1,92 @@
 ---
-export interface Props {
-	title: string;
+import { ViewTransitions } from "astro:transitions";
+interface Props {
+  title: string;
+  image?: string;
+  description?: string;
 }
 
-const { title } = Astro.props as Props;
+const {
+  title,
+  image = "/products/ryan-hoffman-A7f7XRKgUWc-unsplash.webp",
+  description = "A simple Shop built in Astro using View Transitions and TailwindCSS",
+} = Astro.props;
+
+const imageUrl = import.meta.env.PUBLIC_URL
+  ? new URL(image, import.meta.env.PUBLIC_URL)
+  : image;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="product" />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:description" content={description} />
+
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - Astro Transitions Shop</title>
+    <ViewTransitions />
+  </head>
+  <body class="bg-gradient-to-tl via-transparent from-gray-500/5">
+    <main
+      class="relative max-w-6xl min-h-screen mx-auto py-6 lg:pt-10 px-4 pb-20"
+    >
+      <slot />
+    </main>
+    <footer class='w-full mx-auto text-center py-4'>
+      <span>© {new Date().getFullYear()} Just Socks.</span>
+    </footer>
+    <style is:global>
+      :root {
+      }
+      body {
+        background-color: theme(colors.gray.50);
+      }
+      .animate-in {
+        animation: animate-in 0.5s ease-in-out;
+      }
+      /* Firefox */
+      * {
+        scrollbar-width: auto;
+        scrollbar-color: #c7c7c7 #ededed;
+      }
+
+      /* Chrome, Edge, and Safari */
+      *::-webkit-scrollbar {
+        width: 15px;
+      }
+
+      *::-webkit-scrollbar-track {
+        background: #ededed;
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background-color: #c7c7c7;
+        border-radius: 5px;
+        border: 2px solid #ffffff;
+      }
+      @keyframes animate-in {
+        0% {
+          opacity: 0;
+          transform: translateY(1rem);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </body>
 </html>
-<style>
-	:root {
-		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-		--font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-
-		--color-text: hsl(12, 5%, 4%);
-		--color-bg: hsl(10, 21%, 95%);
-		--color-border: hsl(17, 24%, 90%);
-	}
-
-	html {
-		font-family: system-ui, sans-serif;
-		font-size: var(--font-size-base);
-		color: var(--color-text);
-		background-color: var(--color-bg);
-	}
-
-	body {
-		margin: 0;
-	}
-
-	:global(h1) {
-		font-size: var(--font-size-xl);
-	}
-
-	:global(h2) {
-		font-size: var(--font-size-lg);
-	}
-
-	:global(code) {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>
