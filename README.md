@@ -1,21 +1,12 @@
-# Astro
+# Just Socks
 
-This directory is a brief example of an [Astro](https://astro.build/) site that can be deployed to Vercel with zero configuration. This demo showcases:
-
-- `/` - A static page (pre-rendered)
-- `/ssr` - A page that uses server-side rendering (through [Vercel Functions](https://vercel.com/docs/functions))
-- `/ssr-with-swr-caching` - Similar to the previous page, but also caches the response on the [Vercel Edge Network](https://vercel.com/docs/edge-network/overview) using `cache-control` headers
-- `/image` - Astro [Asset](https://docs.astro.build/en/guides/images/) using Vercel [Image Optimization](https://vercel.com/docs/image-optimization)
+Test store at [Astro](https://astro.build/) site:
 
 Learn more about [Astro on Vercel](https://vercel.com/docs/frameworks/astro).
 
-## Deploy Your Own
+## Deploy
 
-Deploy your own Astro project with Vercel.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/astro&template=astro)
-
-_Live Example: https://astro-template.vercel.app_
+Deploy project with Vercel.
 
 ## Project Structure
 
