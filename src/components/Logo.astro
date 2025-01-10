@@ -1,0 +1,171 @@
+---
+
+---
+
+<div class="logo krd">
+    <div class="sock">
+        <div class="cuff"></div>
+        <div class="leg"></div>
+        <div class="foot"></div>
+    </div>
+    <div class="sock">
+        <div class="cuff"></div>
+        <div class="leg"></div>
+        <div class="foot"></div>
+    </div>
+</div>
+
+<style lang="scss">
+    $dark: #2e313a;
+    $light: #ced1e1;
+    $white: #fff;
+
+    .logo {
+        border: 4px solid $dark;
+        border-radius: 100%;
+        width: 150px;
+        height: 150px;
+        cursor: pointer;
+    }
+
+    .krd {
+        position: relative;
+
+        * {
+            transition: all 0.4s ease-in-out;
+        }
+
+        .sock {
+            position: absolute;
+
+            &:nth-of-type(1) {
+                left: 35px;
+                top: -5px;
+                transform: rotate(-10deg);
+                transform-origin: 0 0;
+
+                .leg:before {
+                    display: none;
+                }
+            }
+
+            &:nth-of-type(2) {
+                z-index: 1;
+                left: 25px;
+            }
+
+            .cuff {
+                background: $dark;
+                width: 38px;
+                height: 21px;
+                border: 4px solid $dark;
+                border-radius: 3px 3px 0 0;
+                position: relative;
+
+                &:before {
+                    content: "";
+                    width: 4px;
+                    height: 15px;
+                    border-radius: 3px;
+                    background: white;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    box-shadow:
+                        6.5px 0 $white,
+                        13px 0 $white,
+                        19.5px 0 $white,
+                        26px 0 $white;
+                }
+
+                &:after {
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 5px;
+                    background: $light;
+                    position: absolute;
+                    top: 50%;
+                    mix-blend-mode: multiply;
+                    transform: translateY(-50%);
+                }
+            }
+
+            .leg {
+                margin-top: -2px;
+                background: $white;
+                border: 4px solid $dark;
+                border-bottom: none;
+                width: 40px;
+                height: 80px;
+                margin-bottom: -20px;
+                border-radius: 0 3px 0 0;
+                position: relative;
+
+                &:before {
+                    content: "";
+                    background: $dark;
+                    border-radius: 3px;
+                    height: 12px;
+                    width: 3px;
+                    position: absolute;
+                    top: 30%;
+                    margin: 0 auto;
+                    left: 0;
+                    right: 0;
+                    transform: rotate(45deg);
+                    box-shadow: 6px 6px $dark;
+                }
+
+                &:after {
+                    content: "";
+                    z-index: 1;
+                    background: $white;
+                    position: absolute;
+                    width: 100%;
+                    height: 20px;
+                    bottom: 5px;
+                }
+            }
+
+            .foot {
+                background: $white;
+                width: 80px;
+                height: 39px;
+                border: 4px solid $dark;
+                border-radius: 39px;
+                overflow: hidden;
+                position: relative;
+
+                &:before,
+                &:after {
+                    content: "";
+                    width: 30px;
+                    height: 30px;
+                    background: $light;
+                    position: absolute;
+                    border: 3px solid $dark;
+                    bottom: -10px;
+                }
+
+                &:before {
+                    left: -10px;
+                }
+
+                &:after {
+                    right: -10px;
+                }
+            }
+        }
+
+        &:hover {
+            .sock {
+                transform: scale(1.1);
+
+                &:nth-of-type(1) {
+                    transform: scale(1.1) rotate(-15deg);
+                }
+            }
+        }
+    }
+</style>
