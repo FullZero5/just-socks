@@ -1,0 +1,40 @@
+---
+import BostonLogo from "./Logo.astro";
+import {
+  previousHref,
+  previousText,
+  tutorialHref,
+  tutorialText,
+  githubText,
+  githubHref,
+} from "../../config";
+---
+
+<div>
+  <BostonLogo />
+  <h1 class="text-5xl font-bold mb-4">Just Socks</h1>
+  <h3 class="text-xl text-gray-500 mb-8">
+    We sell cool socks, more information here <a
+      class="hover:underline text-black"
+      href="@">WB</a
+    >.
+  </h3>
+  <nav class="pb-10">
+    <a
+      href={previousHref}
+      class="text-gray-400 hover:underline hover:text-gray-950 py-8"
+      >{previousText}</a
+    >
+    <span class="text-gray-400 mx-2">&#183;</span>
+    <a
+      href={tutorialHref}
+      class="text-gray-400 hover:underline hover:text-gray-950"
+      >{tutorialText}</a
+    >
+    <span class="text-gray-400 mx-2">&#183;</span>
+    <a
+      href={githubHref}
+      class="text-gray-400 hover:underline hover:text-gray-950">{githubText}</a
+    >
+  </nav>
+</div>
