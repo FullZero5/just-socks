@@ -26,7 +26,7 @@ export const getProducts = (
   size: number | null = null
 ): ProductList => {
   let filteredProducts = [...products]; // Используем уже преобразованный массив
-
+  
   // Фильтрация по цвету
   if (filterByColor && filterByColor.trim()) {
     filteredProducts = filteredProducts.filter(

@@ -15,7 +15,13 @@ export function getStaticPaths() {
   ];
 }
 
+// Находим товар по slug
 const product = products.find((product) => product.slug === slug) as Product;
+
+// Если товар не найден, выводим сообщение об ошибке
+if (!product) {
+  throw new Error(`Product with slug "${slug}" not found.`);
+}
 ---
 
 <Layout
@@ -24,17 +30,21 @@ const product = products.find((product) => product.slug === slug) as Product;
   image={product.cover}
 >
   <div class="max-w-4xl mx-auto relative">
+    <!-- Хлебные крошки -->
     <div class="flex gap-2 pb-10 items-center text-gray-500">
       <a href="/" class="rounded-full">
-        <svg class="w-5 h-5 mr-2.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+        <svg class="w-5 h-5 mr-2.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+        </svg>
       </a>
       <a class="after:content-['/'] after:pl-2 capitalize" href="/">home</a>
-      <span class="after:content-['/'] after:pl-2 capitalize"
-        >{product.category}</span
-      >
+      <span class="after:content-['/'] after:pl-2 capitalize">{product.category}</span>
       <span>{product.name}</span>
     </div>
-    <div class="flex flex-col md:flex-row sm sm:gap-8">
+
+    <!-- Основная информация о товаре -->
+    <div class="flex flex-col md:flex-row sm:gap-8">
+      <!-- Изображение товара -->
       <div class="max-w-[450px] w-full h-full max-h-[450px]">
         <img
           src={product.cover}
@@ -43,38 +53,65 @@ const product = products.find((product) => product.slug === slug) as Product;
           transition:name={`${slug} image`}
         />
       </div>
+
+      <!-- Описание товара -->
       <article class="py-4 flex justify-between flex-col">
         <div>
-          <h1 class="text-3xl sm:text-5xl font-bold animate-in">
-            {product.name}
-          </h1>
+          <h1 class="text-3xl sm:text-5xl font-bold animate-in">{product.name}</h1>
           <div transition:name={`${slug} title`}></div>
-          <p
-            class="max-w-sm py-4 text-lg"
-            transition:name={`${slug} description`}
-          >
+          <p class="max-w-sm py-4 text-lg" transition:name={`${slug} description`}>
             {product.description}
           </p>
+
+          <!-- Отображение размеров -->
+          <div class="py-4">
+            <h3 class="text-lg font-semibold">Available Sizes:</h3>
+            <div class="flex items-baseline mt-4 mb-6 text-gray-700 dark:text-gray-300">
+              <div class="flex space-x-4">
+                {product.size.map((size: string) => (
+                  <label class="text-center cursor-pointer">
+                    <input
+                      aria-label="size"
+                      type="radio"
+                      class="flex items-center justify-center w-6 h-6  bg-gray-100 rounded-lg dark:bg-gray-600 cursor-pointer"
+                      name="size"
+                      value={size}
+                      checked={product.size.length === 1 ? true : false}
+                     
+                    />
+                    <p class="text-sm font-semibold text-gray-600">{size}</p>
+                  </label>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Цена и кнопка "Add to cart" -->
         <div class="pt-2 sm:pt-8 text-right">
           <div class="text-4xl font-semibold" transition:name={`${slug} price`}>
-            {product.price} ₽
+            {product.price.toLocaleString()} ₽
           </div>
           <div class="text-xs text-gray-500">* This is a fictional price</div>
           <button
             type="button"
             class="mt-4 px-5 py-2 bg-gray-900 hover:bg-gray-800 text-white font-semibold rounded-full"
-            >Add to cart</button
           >
+            Add to cart
+          </button>
         </div>
       </article>
     </div>
+
+    <!-- Дополнительный текст -->
     <div class="py-6 md:py-20">
       Step into a neon-lit realm where fashion meets the digital frontier. 
       Our boutique is a portal to tomorrow's style, where code and couture collide.
-       Unleash your inner tech fashionista with attire that bridges the gap between 
-       reality and the virtual cosmos.
+      Unleash your inner tech fashionista with attire that bridges the gap between 
+      reality and the virtual cosmos.
     </div>
+
+    <!-- Похожие товары -->
     <h4 class="font-bold text-lg pb-6">You might also like</h4>
     <div class="flex flex-wrap justify-center sm:justify-normal gap-4">
       {

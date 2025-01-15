@@ -1,0 +1,47 @@
+---
+const { page, sortBy, sortOrder, filterByColor, filterBySize, availableSizes } =
+    Astro.props;
+---
+
+<div class="flex gap-4 mb-8 items-center">
+    <span class="text-gray-600">Filter by Size:</span>
+    {
+        availableSizes.map((size: number) => (
+            <a
+                aria-label={size.toString()}
+                href={`?page=${page}&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${filterByColor || ""}&size=${size}`}
+                class={`px-4 py-2 rounded transition-colors duration-200 
+                ${
+                    filterBySize === size
+                        ? "bg-black text-white"
+                        : "bg-gray-200 text-gray-900 hover:bg-gray-300"
+                }`}
+            >
+                {size}
+            </a>
+        ))
+    }
+    {
+        filterBySize && (
+            <a
+                href={`?page=1&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${filterByColor || ""}`}
+                class="w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4 text-gray-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"
+                    />
+                </svg>
+            </a>
+        )
+    }
+</div>

@@ -1,0 +1,37 @@
+---
+const { page, totalPages, sortBy, sortOrder, filterByColor, filterBySize } =
+    Astro.props;
+---
+
+<div class="flex justify-center gap-4 py-8">
+    {
+        page > 1 && (
+            <a
+                href={`?page=${page - 1}&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${filterByColor || ""}&size=${filterBySize || ""}`}
+                class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded"
+            >
+                Previous
+            </a>
+        )
+    }
+    {
+        Array.from({ length: totalPages }, (_, i) => (
+            <a
+                href={`?page=${i + 1}&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${filterByColor || ""}&size=${filterBySize || ""}`}
+                class={`px-4 py-2 ${i + 1 === page ? "bg-black text-white" : "bg-gray-200 hover:bg-gray-300"} rounded`}
+            >
+                {i + 1}
+            </a>
+        ))
+    }
+    {
+        page < totalPages && (
+            <a
+                href={`?page=${page + 1}&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${filterByColor || ""}&size=${filterBySize || ""}`}
+                class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded"
+            >
+                Next
+            </a>
+        )
+    }
+</div>

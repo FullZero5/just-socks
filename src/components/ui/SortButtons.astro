@@ -1,0 +1,32 @@
+---
+const { page, sortBy, sortOrder, filterByColor, filterBySize } = Astro.props;
+---
+
+<div class="flex gap-4 mb-8">
+    <a
+        href={`?page=${page}&sortBy=price&sortOrder=${sortOrder === "asc" ? "desc" : "asc"}&color=${filterByColor || ""}&size=${filterBySize || ""}`}
+        class={`px-4 py-2 rounded transition-colors duration-200
+        ${
+            sortBy === "price"
+                ? "bg-black text-white"
+                : "bg-gray-200 text-gray-900 hover:bg-gray-300"
+        }`}
+    >
+        Sort by Price ({
+            sortBy === "price" ? (sortOrder === "asc" ? "↑" : "↓") : ""
+        })
+    </a>
+    <a
+        href={`?page=${page}&sortBy=category&sortOrder=${sortOrder === "asc" ? "desc" : "asc"}&color=${filterByColor || ""}&size=${filterBySize || ""}`}
+        class={`px-4 py-2 rounded transition-colors duration-200
+        ${
+            sortBy === "category"
+                ? "bg-black text-white"
+                : "bg-gray-200 text-gray-900 hover:bg-gray-300"
+        }`}
+    >
+        Sort by Category ({
+            sortBy === "category" ? (sortOrder === "asc" ? "↑" : "↓") : ""
+        })
+    </a>
+</div>
