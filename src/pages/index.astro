@@ -85,12 +85,13 @@ const totalPages = Math.ceil(total / limit);
     {
       availableColors.map((color) => (
         <a
+          aria-label={color}
           href={`?page=1&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${color}`}
-          class={`w-10 h-10 rounded-full flex items-center justify-center 
+          class={`outline-none focus:outline-none w-5 h-5 rounded-full flex items-center justify-center 
         ${filterByColor === color ? "bg-black text-white" : "bg-gray-200 hover:bg-gray-300"}`}
         >
           <span
-            class="w-6 h-6 rounded-full"
+            class="w-5 h-5 rounded-full"
             style={{ backgroundColor: color }}
           />
         </a>

@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 interface Props {
   title: string;
   image?: string;
@@ -37,7 +37,7 @@ const imageUrl = import.meta.env.PUBLIC_URL
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title} - Just Socks</title>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class="bg-gradient-to-tl via-transparent from-gray-500/5">
     <main
