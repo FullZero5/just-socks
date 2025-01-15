@@ -8,7 +8,8 @@
     "cover": "/products/dushnila.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
     "category": "Socks",
-    "color": "white"
+    "color": "white",
+    "size": [19, 20, 21]
   },
   {
     "id": 15,
@@ -19,7 +20,8 @@
     "cover": "/products/queen.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
     "category": "Socks",
-    "color": "white"
+    "color": "white",
+    "size": [19, 20, 21]
   },
   {
     "id": 16,
@@ -30,7 +32,8 @@
     "cover": "/products/pause.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
     "category": "Socks",
-    "color": "white"
+    "color": "white",
+    "size": [19, 20, 21]
   },
   {
     "id": 17,
@@ -41,7 +44,8 @@
     "cover": "/products/serial.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
     "category": "Socks",
-    "color": "white"
+    "color": "white",
+    "size": [19, 20, 21]
   },
   {
     "id": 18,
@@ -52,7 +56,8 @@
     "cover": "/products/blcat.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
     "category": "Socks",
-    "color": "black"
+    "color": "black",
+    "size": [19, 20, 21]
   },
   {
     "id": 19,
@@ -63,7 +68,8 @@
     "cover": "/products/eyes.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
     "category": "Socks",
-    "color": "orange"
+    "color": "orange",
+    "size": [19, 20, 21]
   },
   {
     "id": 20,
@@ -74,7 +80,8 @@
     "cover": "/products/ducks.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
     "category": "Socks",
-    "color": "black"
+    "color": "black",
+    "size": [19, 20, 23]
   },
   {
     "id": 21,
@@ -85,7 +92,8 @@
     "cover": "/products/frogs.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
     "category": "Socks",
-    "color": "black"
+    "color": "black",
+    "size": [20, 21, 22]
   },
   {
     "id": 22,
@@ -96,7 +104,8 @@
     "cover": "/products/car.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
     "category": "Socks",
-    "color": "gray"
+    "color": "gray",
+    "size": [19, 20, 21]
   },
   {
     "id": 23,
@@ -107,7 +116,8 @@
     "cover": "/products/сars.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
     "category": "Socks",
-    "color": "gray"
+    "color": "gray",
+    "size": [19, 20, 21]
   },
   {
     "id": 24,
@@ -118,7 +128,8 @@
     "cover": "/products/dogs.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
     "category": "Socks",
-    "color": "gray"
+    "color": "gray",
+    "size": [23]
   },
   {
     "id": 25,
@@ -129,7 +140,8 @@
     "cover": "/products/booties_pink.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
     "category": "Booties",
-    "color": "pink"
+    "color": "pink",
+    "size": [8]
   },
   {
     "id": 26,
@@ -140,6 +152,7 @@
     "cover": "/products/booties_blue.webp",
     "coverCredits": "https://unsplash.com/photos/6Nub980bI3I?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
     "category": "Booties",
-    "color": "blue"
+    "color": "blue",
+    "size": [7]
   }
 ]

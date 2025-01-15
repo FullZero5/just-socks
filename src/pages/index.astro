@@ -10,6 +10,7 @@ import {
   githubText,
   githubHref,
   availableColors,
+  availableSizes,
 } from "../config";
 import BostonLogo from "@components/Logo.astro";
 
@@ -18,12 +19,13 @@ const page = parseInt(Astro.url.searchParams.get("page") || "1");
 const sortBy = Astro.url.searchParams.get("sortBy") || "price"; // По умолчанию сортировка по цене
 const sortOrder = Astro.url.searchParams.get("sortOrder") || "asc"; // По умолчанию по возрастанию
 const filterByColor = Astro.url.searchParams.get("color") || null; // Параметр фильтрации по цвету
+const filterBySize = parseInt(Astro.url.searchParams.get("size")) || 8; // Параметр фильтрации по размеру
 
 const limit = 10;
 const skip = (page - 1) * limit;
 
 // Получаем список товаров с учетом сортировки и фильтрации
-const productList = getProducts(skip, limit, sortBy, sortOrder, filterByColor);
+const productList = getProducts(skip, limit, sortBy, sortOrder, filterByColor, filterBySize);
 const { products, total } = productList;
 const totalPages = Math.ceil(total / limit);
 ---
@@ -62,7 +64,7 @@ const totalPages = Math.ceil(total / limit);
   <!-- Кнопки сортировки -->
   <div class="flex gap-4 mb-8">
     <a
-      href={`?page=${page}&sortBy=price&sortOrder=${sortOrder === "asc" ? "desc" : "asc"}&color=${filterByColor || ""}`}
+      href={`?page=${page}&sortBy=price&sortOrder=${sortOrder === "asc" ? "desc" : "asc"}&color=${filterByColor || ""}&size=${filterBySize || ""}`}
       class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded"
     >
       Sort by Price ({
@@ -70,7 +72,7 @@ const totalPages = Math.ceil(total / limit);
       })
     </a>
     <a
-      href={`?page=${page}&sortBy=category&sortOrder=${sortOrder === "asc" ? "desc" : "asc"}&color=${filterByColor || ""}`}
+      href={`?page=${page}&sortBy=category&sortOrder=${sortOrder === "asc" ? "desc" : "asc"}&color=${filterByColor || ""}&size=${filterBySize || ""}`}
       class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded"
     >
       Sort by Category ({
@@ -86,7 +88,7 @@ const totalPages = Math.ceil(total / limit);
       availableColors.map((color) => (
         <a
           aria-label={color}
-          href={`?page=1&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${color}`}
+          href={`?page=1&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${color}&size=${filterBySize || ""}`}
           class={`outline-none focus:outline-none w-5 h-5 rounded-full flex items-center justify-center 
         ${filterByColor === color ? "bg-black text-white" : "bg-gray-200 hover:bg-gray-300"}`}
         >
@@ -98,11 +100,53 @@ const totalPages = Math.ceil(total / limit);
       ))
     }
 
-    <!-- Кнопка для сброса фильтрации, показывается только если выбран цвет -->
+    <!-- Кнопка для сброса фильтрации по цвету, показывается только если выбран цвет -->
     {
       filterByColor && (
         <a
-          href={`?page=1&sortBy=${sortBy}&sortOrder=${sortOrder}`}
+          href={`?page=1&sortBy=${sortBy}&sortOrder=${sortOrder}&size=${filterBySize || ""}`}
+          class="w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4 text-gray-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </a>
+      )
+    }
+  </div>
+
+  <!-- Фильтрация по размеру -->
+  <div class="flex gap-4 mb-8 items-center">
+    <span class="text-gray-600">Filter by Size:</span>
+    {
+      availableSizes.map((size) => (
+        <a
+          aria-label={size}
+          href={`?page=1&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${filterByColor || ""}&size=${size}`}
+          class={`px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded 
+        ${filterBySize === size ? "bg-black text-white" : ""}`}
+        >
+          {size}
+        </a>
+      ))
+    }
+
+    <!-- Кнопка для сброса фильтрации по размеру, показывается только если выбран размер -->
+    {
+      filterBySize && (
+        <a
+          href={`?page=1&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${filterByColor || ""}`}
           class="w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center"
         >
           <svg
@@ -134,7 +178,7 @@ const totalPages = Math.ceil(total / limit);
     {
       page > 1 && (
         <a
-          href={`?page=${page - 1}&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${filterByColor || ""}`}
+          href={`?page=${page - 1}&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${filterByColor || ""}&size=${filterBySize || ""}`}
           class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded"
         >
           Previous
@@ -144,7 +188,7 @@ const totalPages = Math.ceil(total / limit);
     {
       Array.from({ length: totalPages }, (_, i) => (
         <a
-          href={`?page=${i + 1}&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${filterByColor || ""}`}
+          href={`?page=${i + 1}&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${filterByColor || ""}&size=${filterBySize || ""}`}
           class={`px-4 py-2 ${i + 1 === page ? "bg-black text-white" : "bg-gray-200 hover:bg-gray-300"} rounded`}
         >
           {i + 1}
@@ -154,7 +198,7 @@ const totalPages = Math.ceil(total / limit);
     {
       page < totalPages && (
         <a
-          href={`?page=${page + 1}&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${filterByColor || ""}`}
+          href={`?page=${page + 1}&sortBy=${sortBy}&sortOrder=${sortOrder}&color=${filterByColor || ""}&size=${filterBySize || ""}`}
           class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded"
         >
           Next

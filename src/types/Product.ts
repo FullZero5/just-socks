@@ -24,5 +24,5 @@ export interface Product {
     coverCredits: string;
     color: string;
     category: ProductCategory;
-    
+    size: number[];
 }
