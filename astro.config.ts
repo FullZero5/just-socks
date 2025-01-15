@@ -15,5 +15,8 @@ export default defineConfig({
     },
   }),
 
-  integrations: [tailwind(), icon()],
+  integrations: [
+    tailwind(),
+    icon()
+  ],
 });
