@@ -3,8 +3,8 @@ const { page, sortBy, sortOrder, filterByColor, filterBySize, availableSizes } =
     Astro.props;
 ---
 
-<div class="flex gap-4 mb-8 items-center">
-    <span class="text-gray-600">Filter by Size:</span>
+<div class="flex gap-4 mb-8 items-center overflow-x-auto">
+    <span class="text-gray-600 whitespace-nowrap">Filter by Size:</span>
     {
         availableSizes.map((size: number) => (
             <a

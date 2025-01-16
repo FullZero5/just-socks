@@ -9,8 +9,8 @@ const {
 } = Astro.props;
 ---
 
-<div class="flex gap-4 mb-8 items-center">
-    <span class="text-gray-600">Filter by Color:</span>
+<div class="flex gap-4 mb-8 items-center overflow-x-auto">
+    <span class="text-gray-600 whitespace-nowrap">Filter by Color:</span>
     {
         availableColors.map((color: string) => (
             <a

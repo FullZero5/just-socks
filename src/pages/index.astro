@@ -27,7 +27,7 @@ const totalPages = Math.ceil(total / limit);
   <ColorFilter {page} {sortBy} {sortOrder} {filterByColor} {filterBySize} {availableColors} />
   <SizeFilter {page} {sortBy} {sortOrder} {filterByColor} {filterBySize} {availableSizes} />
   {products.length > 0 ? (
-    <section class="flex flex-wrap gap-4 py-8">
+    <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 py-8">
       {products.map((product) => (
         <ProductCard product={product} />
       ))}
